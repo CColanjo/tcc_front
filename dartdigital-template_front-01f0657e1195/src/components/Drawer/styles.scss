@@ -1,0 +1,23 @@
+.main-drawer {
+
+  .MuiPaper-root,
+  .MuiDrawer-paper {
+    width: 55%;
+    background-color: #fff;
+
+   
+  }
+}
+
+.main-drawer-fullWidth {
+
+  .MuiPaper-root,
+  .MuiDrawer-paper {
+    width: 100%;
+    background-color: #fff;
+  }
+}
+
+.close-button {
+  margin-bottom: 20px;
+}
