@@ -7,7 +7,7 @@ const routes: IRoute[] = [
 		path: '/adduser',
 		title: 'AddUser',
 		element: AddUser,
-		authenticated: false,
+		authenticated: true,
 		hideTitle: false,
 		navigation: true
 	}

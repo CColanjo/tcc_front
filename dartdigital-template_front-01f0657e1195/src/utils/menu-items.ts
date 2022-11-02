@@ -10,7 +10,7 @@ const menuItems: IMenu[] = [
 		icon: DashboardCustomizeOutlinedIcon,
 		idTitle: 'dashboard',
 		active: true,
-		path: '/dashboard'
+		path: '/home'
 	},
 	{
 		icon: ScheduleIcon,

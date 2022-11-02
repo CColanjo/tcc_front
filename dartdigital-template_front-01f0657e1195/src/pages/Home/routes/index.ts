@@ -7,7 +7,7 @@ const routes: IRoute[] = [
 		path: '/home',
 		title: 'home',
 		element: HomePage,
-		authenticated: false,
+		authenticated: true,
 		hideTitle: false,
 		navigation: true
 	}

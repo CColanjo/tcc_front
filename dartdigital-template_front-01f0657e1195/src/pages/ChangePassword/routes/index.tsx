@@ -6,7 +6,7 @@ const routes: IRoute[] = [
 		path: '/changepassword',
 		title: 'ChangePassword',
 		element: ChangePassword,
-		authenticated: false,
+		authenticated: true,
 		hideTitle: false,
 		navigation: true
 	}

@@ -6,7 +6,7 @@ const routes: IRoute[] = [
 		path: '/schedule',
 		title: 'Schedule',
 		element: AddSchedule,
-		authenticated: false,
+		authenticated: true,
 		hideTitle: false,
 		navigation: true
 	}
