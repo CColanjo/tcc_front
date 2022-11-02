@@ -16,6 +16,9 @@ const userServices = {
 	},
 	disable: async (id: number) => {
 		return api.put('user/disable?id=' + id)
+	},
+	active: async (id: number) => {
+		return api.put('user/active?id=' + id)
 	}
 }
 export default userServices

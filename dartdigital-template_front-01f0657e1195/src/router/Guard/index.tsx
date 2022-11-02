@@ -14,7 +14,7 @@ const Guard = ({ element, authenticated, navigation }: GuardProps) => {
 	const auth = useAuth()
 
 	const isLogged = auth.isLogged
-	debugger
+
 	if (authenticated && !isLogged) {
 		return <Navigate to="/login" />
 	} else if (isLogged && !authenticated) {

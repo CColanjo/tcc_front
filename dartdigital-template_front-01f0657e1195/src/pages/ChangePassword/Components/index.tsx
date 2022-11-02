@@ -4,24 +4,32 @@ import { Button, Container, Grid, TextField } from '@mui/material'
 import { useIntl } from 'react-intl'
 import { useFormik } from 'formik'
 import { object, string } from 'yup'
-import { toastMessages } from '~/components'
 import changePasswordServices from '../services'
-import { useAuth } from '~/hooks/auth'
+import { useAuth } from '~/hooks'
+import toastMessages from '~/components/ToastMessages'
 
 const ChangePassword = () => {
 	const { messages } = useIntl()
 	const auth = useAuth()
+
 	const onSubmit = async (data: any) => {
-		if (data.newPassword != data.confirmPassword) {
-			toastMessages.error('senhas novas são diferentes')
+		if (data.newPassword != data.newPasswordConfirmation) {
+			toastMessages.success(messages['PasswordsAreNotTheSame'].toString())
 			return
-		} else if (data.oldPassword != auth.user.password) {
-			toastMessages.error('senha atual esta errada')
+		}
+		debugger
+		console.log(auth.user.password)
+		if (auth.user.password != data.oldPassword) {
+			toastMessages.success(
+				messages['CurrentPasswordDoesNotMatch'].toString()
+			)
 			return
 		}
 
 		try {
-			changePasswordServices.changePassword(auth.user.username, data)
+			data.username = auth.user.username
+			changePasswordServices.changePassword(data)
+			toastMessages.success(messages['ChangePasswordSucess'].toString())
 			formik.resetForm()
 		} catch (err) {
 			console.log(err)
@@ -35,7 +43,7 @@ const ChangePassword = () => {
 		newPassword: string().required(
 			messages['error.validation.required-fields'].toString()
 		),
-		confirmPassword: string().required(
+		newPasswordConfirmation: string().required(
 			messages['error.validation.required-fields'].toString()
 		)
 	})
@@ -44,7 +52,7 @@ const ChangePassword = () => {
 		initialValues: {
 			oldPassword: '',
 			newPassword: '',
-			confirmPassword: ''
+			newPasswordConfirmation: ''
 		},
 		onSubmit: onSubmit,
 		validateOnBlur: false,
@@ -92,15 +100,17 @@ const ChangePassword = () => {
 					<Grid container item direction="row" spacing={2}>
 						<Grid item>
 							<TextField
-								id="confirmPassword"
-								name="confirmPassword"
+								id="newPasswordConfirmation"
+								name="newPasswordConfirmation"
 								label={messages['confirm-password'].toString()}
 								variant="outlined"
 								type={'confirmPassword'}
 								onChange={formik.handleChange}
 								onBlur={formik.handleBlur}
-								value={formik.values.confirmPassword}
-								error={Boolean(formik.errors.confirmPassword)}
+								value={formik.values.newPasswordConfirmation}
+								error={Boolean(
+									formik.errors.newPasswordConfirmation
+								)}
 							/>
 						</Grid>
 					</Grid>

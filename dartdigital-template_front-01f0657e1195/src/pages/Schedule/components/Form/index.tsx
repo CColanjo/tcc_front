@@ -46,6 +46,7 @@ const AddScheduleForm = ({
 		setSchedules([])
 		formik.resetForm()
 		closeDrawer()
+		setRefresh((refresh) => !refresh)
 	}
 
 	const load = async (id: string) => {

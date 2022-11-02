@@ -2,8 +2,8 @@
 import api from '~/services/api'
 
 const changePasswordServices = {
-	changePassword: (id: string, data: any) => {
-		return api.put('/users/' + id, data)
+	changePassword: (data: any) => {
+		return api.put('/authentication/change-password', data)
 	}
 }
 export default changePasswordServices

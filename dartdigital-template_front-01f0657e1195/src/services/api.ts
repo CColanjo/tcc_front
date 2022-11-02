@@ -35,7 +35,6 @@ const errorMessages: Record<string, IntlShape> = {
 function resolveErrors(data: any) {
 	if (data.errors) {
 		const errorList = data.errors
-
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		errorList.map((errorObj: any) => {
 			toastMessages.error(errorObj.error)

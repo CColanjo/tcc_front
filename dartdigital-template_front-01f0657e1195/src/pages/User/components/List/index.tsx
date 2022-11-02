@@ -10,6 +10,8 @@ import './styles.scss'
 import { Filter } from '../../models'
 import userServices from '../../services'
 import AutoDeleteIcon from '@mui/icons-material/AutoDelete'
+import { useAuth } from '~/hooks/auth'
+import CheckIcon from '@mui/icons-material/Check'
 
 const AddUser = () => {
 	const [id, setId] = useState('')
@@ -17,7 +19,7 @@ const AddUser = () => {
 	const { messages } = useIntl()
 	const filter = useState<Filter>()
 	const [refresh, setRefresh] = useState<boolean>(false)
-
+	const auth = useAuth()
 	const openDrawer = () => {
 		drawerRef.current?.toggleDrawer()
 	}
@@ -33,6 +35,12 @@ const AddUser = () => {
 
 	const disableUser = async (id: number) => {
 		await userServices.disable(id)
+		setRefresh((refresh) => !refresh)
+	}
+
+	const activeUser = async (id: number) => {
+		await userServices.active(id)
+		setRefresh((refresh) => !refresh)
 	}
 
 	const columns = [
@@ -44,32 +52,59 @@ const AddUser = () => {
 			flex: 2
 		},
 		{
+			field: 'active',
+			headerName: messages['active'].toString(),
+			align: 'left',
+			headerAlign: 'left',
+			flex: 2,
+			renderCell: (params: GridRenderCellParams<string>) =>
+				params.row.active ? 'S' : 'N'
+		},
+		{
 			field: 'action',
 			headerName: 'Action',
 			type: 'actions',
 			headerAlign: 'left',
-			flex: 1,
+			flex: 2,
 			renderCell: (params: GridRenderCellParams<string>) => (
 				<Grid container item direction="row" spacing={2}>
 					<Grid item>
-						<Button
-							onClick={() => {
-								fireAction(params.row.id)
-							}}
-						>
-							{' '}
-							<EditIcon />
-						</Button>
+						{auth.isAdmin && (
+							<Button
+								onClick={() => {
+									fireAction(params.row.id)
+								}}
+							>
+								{' '}
+								<EditIcon />
+							</Button>
+						)}
 					</Grid>
 					<Grid item>
-						<Button
-							onClick={() => {
-								disableUser(params.row.id)
-							}}
-						>
-							{' '}
-							<AutoDeleteIcon />
-						</Button>
+						{auth.isAdmin && (
+							<Button
+								disabled={params.row.active ? false : true}
+								onClick={() => {
+									disableUser(params.row.id)
+								}}
+							>
+								{' '}
+								<AutoDeleteIcon />
+							</Button>
+						)}
+					</Grid>
+					<Grid item>
+						{auth.isAdmin && (
+							<Button
+								disabled={params.row.active ? true : false}
+								onClick={() => {
+									activeUser(params.row.id)
+								}}
+							>
+								{' '}
+								<CheckIcon />
+							</Button>
+						)}
 					</Grid>
 				</Grid>
 			)
@@ -78,16 +113,18 @@ const AddUser = () => {
 
 	return (
 		<Container>
-			<div className="button-action">
-				<Button
-					variant="contained"
-					onClick={() => {
-						openDrawer()
-					}}
-				>
-					{messages['register'].toString()}
-				</Button>
-			</div>
+			{auth.isAdmin && (
+				<div className="button-action">
+					<Button
+						variant="contained"
+						onClick={() => {
+							openDrawer()
+						}}
+					>
+						{messages['register'].toString()}
+					</Button>
+				</div>
+			)}
 			<Table
 				url={'users/paginated'}
 				columns={columns}
