@@ -76,10 +76,10 @@ const AddClientForm = ({
 
 	const formik = useFormik({
 		initialValues: {
-			name: '',
-			cellphone: '',
-			email: '',
-			address: ''
+			Name: '',
+			Cellphone: '',
+			Email: '',
+			Address: ''
 		},
 		onSubmit: onSubmit,
 		validateOnBlur: false,
@@ -100,56 +100,56 @@ const AddClientForm = ({
 						<Grid container item direction="row">
 							<Grid item sx={{ maxWidth: '100%', width: 660 }}>
 								<TextField
-									id="name"
-									name="name"
+									id="Name"
+									name="Name"
 									label={messages['name'].toString()}
 									variant="outlined"
 									fullWidth
 									onChange={formik.handleChange}
 									onBlur={formik.handleBlur}
-									value={formik.values.name}
-									error={Boolean(formik.errors.name)}
+									value={formik.values.Name}
+									error={Boolean(formik.errors.Name)}
 								/>
 							</Grid>
 						</Grid>
 						<Grid container item direction="row" spacing={2}>
 							<Grid item>
 								<TextField
-									id="cellphone"
-									name="cellphone"
+									id="Cellphone"
+									name="Cellphone"
 									label={messages[
 										'cellphone-number'
 									].toString()}
 									variant="outlined"
 									onChange={formik.handleChange}
 									onBlur={formik.handleBlur}
-									value={formik.values.cellphone}
-									error={Boolean(formik.errors.cellphone)}
+									value={formik.values.Cellphone}
+									error={Boolean(formik.errors.Cellphone)}
 								/>
 							</Grid>
 							<Grid item>
 								<TextField
-									id="email"
-									name="email"
+									id="Email"
+									name="Email"
 									label={messages['e-mail'].toString()}
 									variant="outlined"
 									type={'email'}
 									onChange={formik.handleChange}
 									onBlur={formik.handleBlur}
-									value={formik.values.email}
-									error={Boolean(formik.errors.email)}
+									value={formik.values.Email}
+									error={Boolean(formik.errors.Email)}
 								/>
 							</Grid>
 							<Grid item>
 								<TextField
-									id="address"
-									name="address"
+									id="Address"
+									name="Address"
 									label={messages['address'].toString()}
 									variant="outlined"
 									onChange={formik.handleChange}
 									onBlur={formik.handleBlur}
-									value={formik.values.address}
-									error={Boolean(formik.errors.address)}
+									value={formik.values.Address}
+									error={Boolean(formik.errors.Address)}
 								/>
 							</Grid>
 						</Grid>

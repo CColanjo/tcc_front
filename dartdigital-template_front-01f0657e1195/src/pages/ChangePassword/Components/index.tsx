@@ -17,8 +17,6 @@ const ChangePassword = () => {
 			toastMessages.success(messages['PasswordsAreNotTheSame'].toString())
 			return
 		}
-		debugger
-		console.log(auth.user.password)
 		if (auth.user.password != data.oldPassword) {
 			toastMessages.success(
 				messages['CurrentPasswordDoesNotMatch'].toString()

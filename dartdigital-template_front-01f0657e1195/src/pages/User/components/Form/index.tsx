@@ -71,11 +71,11 @@ const UserForm = ({
 
 	const formik = useFormik({
 		initialValues: {
-			name: '',
-			cellphone: '',
-			email: '',
-			username: '',
-			isAdmin: false
+			Name: '',
+			Cellphone: '',
+			Email: '',
+			Username: '',
+			IsAdmin: false
 		},
 		onSubmit: onSubmit,
 		validateOnBlur: false,
@@ -96,42 +96,42 @@ const UserForm = ({
 						<Grid container item direction="row">
 							<Grid item sx={{ maxWidth: '100%', width: 660 }}>
 								<TextField
-									id="name"
-									name="name"
+									id="Name"
+									name="Name"
 									label={messages['name'].toString()}
 									variant="outlined"
 									fullWidth
 									onChange={formik.handleChange}
 									onBlur={formik.handleBlur}
-									value={formik.values.name}
-									error={Boolean(formik.errors.name)}
+									value={formik.values.Name}
+									error={Boolean(formik.errors.Name)}
 								/>
 							</Grid>
 						</Grid>
 						<Grid container item direction="row" spacing={2}>
 							<Grid item>
 								<TextField
-									id="username"
-									name="username"
+									id="Username"
+									name="Username"
 									label={messages['user'].toString()}
 									variant="outlined"
 									onChange={formik.handleChange}
 									onBlur={formik.handleBlur}
-									error={Boolean(formik.errors.username)}
-									value={formik.values.username}
+									error={Boolean(formik.errors.Username)}
+									value={formik.values.Username}
 								/>
 							</Grid>
 						</Grid>
 						<Grid container item direction="row">
 							<Grid item>
 								<FormControlLabel
-									id="isAdmin"
-									name="isAdmin"
+									id="IsAdmin"
+									name="IsAdmin"
 									onChange={formik.handleChange}
 									onBlur={formik.handleBlur}
 									control={
 										<Checkbox
-											checked={formik.values.isAdmin}
+											checked={formik.values.IsAdmin}
 										/>
 									}
 									label={messages['administrator'].toString()}

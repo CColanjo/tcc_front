@@ -32,7 +32,7 @@ const AddClient = () => {
 
 	const columns = [
 		{
-			field: 'name',
+			field: 'Name',
 			headerName: messages['client'].toString(),
 			align: 'left',
 			headerAlign: 'left',
@@ -46,7 +46,7 @@ const AddClient = () => {
 			renderCell: (params: GridRenderCellParams<string>) => (
 				<Button
 					onClick={() => {
-						fireAction(params.row.id)
+						fireAction(params.row.Id)
 					}}
 				>
 					{' '}

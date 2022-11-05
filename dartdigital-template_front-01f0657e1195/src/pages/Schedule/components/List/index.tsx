@@ -31,20 +31,20 @@ const AddSchedule = () => {
 
 	const columns = [
 		{
-			field: 'nameClient',
+			field: 'NameClient',
 			headerName: messages['client'].toString(),
 			align: 'left',
 			headerAlign: 'left',
 			flex: 2
 		},
 		{
-			field: 'scheduleDate',
+			field: 'ScheduleDate',
 			headerName: messages['date'].toString(),
 			align: 'left',
 			headerAlign: 'left',
 			flex: 2,
 			renderCell: (params: GridRenderCellParams<string>) =>
-				moment(params.row.scheduleDate).format('DD/MM/YYYY HH:mm')
+				moment(params.row.ScheduleDate).format('DD/MM/YYYY HH:mm')
 		},
 		{
 			field: 'action',
@@ -54,7 +54,7 @@ const AddSchedule = () => {
 			renderCell: (params: GridRenderCellParams<string>) => (
 				<Button
 					onClick={() => {
-						fireAction(params.row.id)
+						fireAction(params.row.Id)
 					}}
 				>
 					{' '}
@@ -78,7 +78,7 @@ const AddSchedule = () => {
 				</Button>
 			</div>
 			<Table
-				url={'/schedule/paginated'}
+				url={'/schedules/paginated'}
 				columns={columns}
 				filter={filter}
 				setRefresh={refresh}

@@ -45,12 +45,12 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
 					password
 				})
 
-				const { username, token, isadmin } = response.data
+				const { username, token, isAdmin } = response.data
 
 				setUser({ username })
 				setStorageUser({ username, password })
 				setStorageToken(token)
-				setIsAdmin(isadmin)
+				setIsAdmin(isAdmin)
 			} catch (error) {
 				// TODO - Tratar erro de login
 				console.error('Erro ao fazer login', error)

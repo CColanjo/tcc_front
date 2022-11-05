@@ -1,3 +1,3 @@
 export type Filter = {
-	name: string
+	Name: string
 }

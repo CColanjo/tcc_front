@@ -63,9 +63,9 @@ const Table = (props: TableProps) => {
 			setTotalRecords(data.totalRecords)
 		}
 
-		if (data.content) {
+		if (data.Content) {
 			setDataSource(
-				data.content.map((item: any) => ({
+				data.Content.map((item: any) => ({
 					...item,
 					id: item.officeId ?? Math.random(),
 					date: moment(data.date).format('DD/MM/YYYY')

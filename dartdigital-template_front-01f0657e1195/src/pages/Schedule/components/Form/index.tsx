@@ -20,7 +20,6 @@ import scheduleServices from '../../services'
 import { Client, Schedule } from '../../models'
 import { toastMessages } from '~/components'
 import { useFormik } from 'formik'
-import { object, string } from 'yup'
 import moment from 'moment'
 
 type AddScheduleFormPros = {
@@ -52,6 +51,8 @@ const AddScheduleForm = ({
 	const load = async (id: string) => {
 		const response = await scheduleServices.getScheduleById(id)
 		const { data } = response
+		const client = clients.filter((value) => data.ClientId == value.Id)
+		data.ClientId = client[0].Id
 		formik.setValues(data)
 		loadSchedules(data.scheduleDate)
 		openDrawer()
@@ -68,7 +69,7 @@ const AddScheduleForm = ({
 		const { data } = response
 		const dataFiltered = data.filter((schedule: any) => {
 			return (
-				moment(schedule.scheduleDate).format('DD/MM/YYYY') ==
+				moment(schedule.ScheduleDate).format('DD/MM/YYYY') ==
 				moment(value).format('DD/MM/YYYY')
 			)
 		})
@@ -97,9 +98,9 @@ const AddScheduleForm = ({
 				await scheduleServices.updateSchedule(data)
 			} else {
 				const client = clients.filter(
-					(value) => data.clientId == value.id
+					(value) => data.ClientId == value.Id
 				)
-				data = { ...data, nameClient: client[0].name, willAttend: true }
+				data = { ...data, nameClient: client[0].Name, willAttend: true }
 				await scheduleServices.createSchedule(data)
 			}
 			toastMessages.success(messages['register-sucess'].toString())
@@ -114,25 +115,24 @@ const AddScheduleForm = ({
 		someDate: '10-10-2022 8:00'
 	}
 
-	const validationSchema = object({
-		clientId: string().required(
-			messages['error.validation.required-fields'].toString()
-		),
-		scheduleDate: string().required(
-			messages['error.validation.required-fields'].toString()
-		)
-	})
+	// const validationSchema = object({
+	// 	clientId: string().required(
+	// 		messages['error.validation.required-fields'].toString()
+	// 	),
+	// 	scheduleDate: string().required(
+	// 		messages['error.validation.required-fields'].toString()
+	// 	)
+	// })
 
 	const formik = useFormik({
 		initialValues: {
-			clientId: '',
-			scheduleDate: '',
-			willAtend: ''
+			ClientId: '',
+			ScheduleDate: '',
+			WillAtend: false
 		},
 		onSubmit: onSubmit,
 		validateOnBlur: false,
-		validateOnChange: false,
-		validationSchema
+		validateOnChange: false
 	})
 
 	return (
@@ -148,9 +148,9 @@ const AddScheduleForm = ({
 						<Grid container item direction="row" spacing={2}>
 							<Grid item sx={{ maxWidth: '100%', width: 660 }}>
 								<TextField
-									id="clientId"
-									name="clientId"
-									value={formik.values.clientId}
+									id="ClientId"
+									name="ClientId"
+									value={formik.values.ClientId}
 									onChange={formik.handleChange}
 									select
 									variant="outlined"
@@ -158,25 +158,25 @@ const AddScheduleForm = ({
 									style={{ width: '100%' }}
 								>
 									{clients.map((make, index) => (
-										<MenuItem key={index} value={make.id}>
-											{make.name}
+										<MenuItem key={index} value={make.Id}>
+											{make.Name}
 										</MenuItem>
 									))}
-									error={Boolean(formik.errors.clientId)}
+									error={Boolean(formik.errors.ClientId)}
 								</TextField>
 							</Grid>
 							<Grid item>
 								<TextField
-									id="scheduleDate"
-									name="scheduleDate"
+									id="ScheduleDate"
+									name="ScheduleDate"
 									type="datetime-local"
 									InputLabelProps={{ shrink: true }}
 									label={messages['date'].toString()}
 									onBlur={formik.handleBlur}
 									onChange={formik.handleChange}
 									defaultValue={inputProps.someDate}
-									value={formik.values.scheduleDate}
-									error={Boolean(formik.errors.scheduleDate)}
+									value={formik.values.ScheduleDate}
+									error={Boolean(formik.errors.ScheduleDate)}
 								/>
 							</Grid>
 							<Grid item>
@@ -184,7 +184,7 @@ const AddScheduleForm = ({
 									variant="contained"
 									onClick={() => {
 										loadSchedules(
-											formik.values.scheduleDate
+											formik.values.ScheduleDate
 										)
 									}}
 								>
@@ -208,47 +208,48 @@ const AddScheduleForm = ({
 								>
 									{schedules.map((value) => (
 										<>
-											{value.willAttend && (
-												<>
-													<ListItem alignItems="flex-start">
-														<ListItemText
-															primary={moment(
-																value.scheduleDate
-															).format(
-																'DD/MM/YYYY HH:mm'
-															)}
-															secondary={
-																<Fragment>
-																	<Typography
-																		sx={{
-																			display:
-																				'inline'
-																		}}
-																		component="span"
-																		variant="body2"
-																		color="text.primary"
-																	>
-																		{
-																			value.nameClient
-																		}
-																	</Typography>
-																</Fragment>
-															}
-														/>
-														<Button
-															onClick={() => {
-																disableSchedule(
-																	value.id,
-																	value.scheduleDate
-																)
-															}}
-														>
-															<AutoDeleteIcon />
-														</Button>
-													</ListItem>
-													<Divider component="li" />
-												</>
-											)}
+											<ListItem
+												key={value.Id}
+												alignItems="flex-start"
+											>
+												{value.WillAttend && (
+													<ListItemText
+														primary={moment(
+															value.ScheduleDate
+														).format(
+															'DD/MM/YYYY HH:mm'
+														)}
+														secondary={
+															<Fragment>
+																<Typography
+																	sx={{
+																		display:
+																			'inline'
+																	}}
+																	component="span"
+																	variant="body2"
+																	color="text.primary"
+																>
+																	{
+																		value.NameClient
+																	}
+																</Typography>
+															</Fragment>
+														}
+													/>
+												)}
+												<Button
+													onClick={() => {
+														disableSchedule(
+															value.Id,
+															value.ScheduleDate
+														)
+													}}
+												>
+													<AutoDeleteIcon />
+												</Button>
+											</ListItem>
+											<Divider component="li" />
 										</>
 									))}
 								</List>

@@ -45,14 +45,14 @@ const AddUser = () => {
 
 	const columns = [
 		{
-			field: 'username',
+			field: 'Username',
 			headerName: messages['user'].toString(),
 			align: 'left',
 			headerAlign: 'left',
 			flex: 2
 		},
 		{
-			field: 'active',
+			field: 'Active',
 			headerName: messages['active'].toString(),
 			align: 'left',
 			headerAlign: 'left',
@@ -72,7 +72,7 @@ const AddUser = () => {
 						{auth.isAdmin && (
 							<Button
 								onClick={() => {
-									fireAction(params.row.id)
+									fireAction(params.row.Id)
 								}}
 							>
 								{' '}
@@ -83,9 +83,9 @@ const AddUser = () => {
 					<Grid item>
 						{auth.isAdmin && (
 							<Button
-								disabled={params.row.active ? false : true}
+								disabled={params.row.Active ? false : true}
 								onClick={() => {
-									disableUser(params.row.id)
+									disableUser(params.row.Id)
 								}}
 							>
 								{' '}
@@ -96,9 +96,9 @@ const AddUser = () => {
 					<Grid item>
 						{auth.isAdmin && (
 							<Button
-								disabled={params.row.active ? true : false}
+								disabled={params.row.Active ? true : false}
 								onClick={() => {
-									activeUser(params.row.id)
+									activeUser(params.row.Id)
 								}}
 							>
 								{' '}

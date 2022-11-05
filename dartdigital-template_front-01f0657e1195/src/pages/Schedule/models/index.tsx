@@ -1,17 +1,17 @@
 export interface Client {
-	id: number
-	name: string
+	Id: number
+	Name: string
 }
 
 export interface Schedule {
-	id: number
-	clientId: number
-	nameClient: string
-	scheduleDate: string
-	willAttend: boolean
+	Id: number
+	ClientId: number
+	NameClient: string
+	ScheduleDate: string
+	WillAttend: boolean
 }
 
 export type Filter = {
-	nameClient: string
-	date: string
+	NameClient: string
+	Date: string
 }
