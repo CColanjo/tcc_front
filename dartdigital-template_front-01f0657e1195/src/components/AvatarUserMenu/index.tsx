@@ -42,8 +42,7 @@ const AvatarUserMenu = () => {
 						fontWeight: 'bold'
 					}}
 				>
-					TESTE
-					{/* {user.username} */}
+					{user.username}
 				</Avatar>
 			</IconButton>
 			<Menu

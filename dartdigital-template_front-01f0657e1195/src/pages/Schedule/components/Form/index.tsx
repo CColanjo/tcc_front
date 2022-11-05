@@ -53,8 +53,9 @@ const AddScheduleForm = ({
 		const { data } = response
 		const client = clients.filter((value) => data.ClientId == value.Id)
 		data.ClientId = client[0].Id
+		data.ScheduleDate = moment(data.ScheduleDate).format('YYYY-MM-DDTHH:mm')
 		formik.setValues(data)
-		loadSchedules(data.scheduleDate)
+		loadSchedules(data.ScheduleDate)
 		openDrawer()
 	}
 
@@ -114,15 +115,6 @@ const AddScheduleForm = ({
 	const inputProps = {
 		someDate: '10-10-2022 8:00'
 	}
-
-	// const validationSchema = object({
-	// 	clientId: string().required(
-	// 		messages['error.validation.required-fields'].toString()
-	// 	),
-	// 	scheduleDate: string().required(
-	// 		messages['error.validation.required-fields'].toString()
-	// 	)
-	// })
 
 	const formik = useFormik({
 		initialValues: {
