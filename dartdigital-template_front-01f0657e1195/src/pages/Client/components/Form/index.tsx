@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Button, Container, Grid, TextField } from '@mui/material'
+import { Button, Container, Grid, TextField, Typography } from '@mui/material'
 import { Ref, useEffect } from 'react'
 import Drawer, { DrawerHandles } from '~/components/Drawer'
 import { useIntl } from 'react-intl'
@@ -152,6 +152,16 @@ const AddClientForm = ({
 									error={Boolean(formik.errors.Address)}
 								/>
 							</Grid>
+						</Grid>
+
+						<Grid>
+							<br></br>
+							<Typography variant="h6" gutterBottom>
+								Essa plataforma utiliza ambiente de sandbox para
+								enviar mensagem, para receber mensagem no seu
+								whatsapp, por favor envie <b>join teach-come</b>{' '}
+								para número o +1 415 523 8886
+							</Typography>
 						</Grid>
 
 						<Grid container item direction="row">
