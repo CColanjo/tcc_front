@@ -5,7 +5,8 @@
   "scripts": {
     "start": "webpack serve --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
-    "lint": "eslint src --max-warnings=0"
+    "lint": "eslint src --max-warnings=0",
+    "deploy": "aws s3 sync build/ s3:://agendaai --acl public-read"
   },
   "dependencies": {
     "@emotion/react": "^11.7.1",
