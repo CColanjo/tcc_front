@@ -61,10 +61,10 @@ const UserForm = ({
 		}
 	}
 	const validationSchema = object({
-		name: string().required(
+		Name: string().required(
 			messages['error.validation.required-fields'].toString()
 		),
-		username: string().required(
+		Username: string().required(
 			messages['error.validation.required-fields'].toString()
 		)
 	})
@@ -72,8 +72,6 @@ const UserForm = ({
 	const formik = useFormik({
 		initialValues: {
 			Name: '',
-			Cellphone: '',
-			Email: '',
 			Username: '',
 			IsAdmin: false
 		},

@@ -60,16 +60,16 @@ const AddClientForm = ({
 	}
 
 	const validationSchema = object({
-		name: string().required(
+		Name: string().required(
 			messages['error.validation.required-fields'].toString()
 		),
-		cellphone: string().required(
+		Cellphone: string().required(
 			messages['error.validation.required-fields'].toString()
 		),
-		email: string().required(
+		Email: string().required(
 			messages['error.validation.required-fields'].toString()
 		),
-		address: string().required(
+		Address: string().required(
 			messages['error.validation.required-fields'].toString()
 		)
 	})

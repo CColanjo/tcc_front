@@ -58,7 +58,7 @@ const AddUser = () => {
 			headerAlign: 'left',
 			flex: 2,
 			renderCell: (params: GridRenderCellParams<string>) =>
-				params.row.active ? 'S' : 'N'
+				params.row.Active == true ? 'Sim' : 'Não'
 		},
 		{
 			field: 'action',
