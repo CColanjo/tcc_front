@@ -98,10 +98,13 @@ const AddScheduleForm = ({
 				data.id = id
 				await scheduleServices.updateSchedule(data)
 			} else {
-				const client = clients.filter(
-					(value) => data.ClientId == value.Id
-				)
-				data = { ...data, nameClient: client[0].Name, willAttend: true }
+				data = {
+					clientId: data.ClientId,
+					scheduleDate: data.ScheduleDate,
+					willAttend: true
+				}
+
+				debugger
 				await scheduleServices.createSchedule(data)
 			}
 			toastMessages.success(messages['register-sucess'].toString())
@@ -120,7 +123,7 @@ const AddScheduleForm = ({
 		initialValues: {
 			ClientId: '',
 			ScheduleDate: '',
-			WillAtend: false
+			WillAttend: false
 		},
 		onSubmit: onSubmit,
 		validateOnBlur: false,

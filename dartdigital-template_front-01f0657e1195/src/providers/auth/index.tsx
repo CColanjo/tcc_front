@@ -46,7 +46,7 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
 				})
 
 				const { username, token, isAdmin } = response.data
-
+				debugger
 				setUser({ username })
 				setStorageUser({ username, password })
 				setStorageToken(token)

@@ -78,7 +78,7 @@ const AddSchedule = () => {
 				</Button>
 			</div>
 			<Table
-				url={'/schedules/paginated'}
+				url={'schedules/paginated'}
 				columns={columns}
 				filter={filter}
 				setRefresh={refresh}
