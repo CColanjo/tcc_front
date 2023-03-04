@@ -57,7 +57,6 @@ const UserForm = ({
 			setRefresh((refresh) => !refresh)
 			closeDrawer()
 		} catch (err) {
-			debugger
 			console.log(err)
 		}
 	}

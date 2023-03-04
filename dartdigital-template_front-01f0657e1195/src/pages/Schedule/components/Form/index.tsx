@@ -113,7 +113,6 @@ const AddScheduleForm = ({
 					professionalId: data.ProfessionalId
 				}
 
-				debugger
 				await scheduleServices.createSchedule(data)
 			}
 			toastMessages.success(messages['register-sucess'].toString())
