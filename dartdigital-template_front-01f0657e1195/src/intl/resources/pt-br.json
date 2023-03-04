@@ -133,6 +133,7 @@
 	"current_office": "Posto Atual",
 	"client":"Cliente",
 	"add-client":"Adicionar Cliente",
+	"add-professional":"Adicionar Professional",
 	"name":"Nome",
 	"cellphone-number":"Celular",
 	"e-mail":"E-mail",
@@ -154,5 +155,6 @@
 	"UserNotFound": "Usuário não encontrado",
 	"PasswordsAreNotTheSame": "A senha não são as mesmas",
 	"CurrentPasswordDoesNotMatch": "A senha atual não corresponde",
-	"ChangePasswordSucess":"Senha alterada com sucesso"
+	"ChangePasswordSucess":"Senha alterada com sucesso",
+	"professional": "Profissional"
 }

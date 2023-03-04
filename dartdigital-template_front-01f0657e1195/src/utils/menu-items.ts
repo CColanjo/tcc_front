@@ -31,6 +31,12 @@ const menuItems: IMenu[] = [
 		path: '/addclient'
 	},
 	{
+		icon: PeopleOutlineIcon,
+		idTitle: 'add-professional',
+		active: true,
+		path: '/addprofessional'
+	},
+	{
 		icon: KeyIcon,
 		idTitle: 'change-password',
 		active: true,
