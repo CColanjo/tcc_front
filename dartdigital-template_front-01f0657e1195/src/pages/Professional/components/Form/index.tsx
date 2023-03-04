@@ -82,7 +82,9 @@ const AddProfessionalForm = ({
 					<Grid container direction="column" padding={2} spacing={2}>
 						<Grid container item direction="row">
 							<Grid item>
-								<h3>{messages['add-client'].toString()}</h3>
+								<h3>
+									{messages['add-professional'].toString()}
+								</h3>
 							</Grid>
 						</Grid>
 						<Grid container item direction="row">

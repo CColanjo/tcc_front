@@ -21,6 +21,9 @@ const scheduleServices = {
 	getAllClients: async () => {
 		return api.get('/clients')
 	},
+	getAllProfessionals: async () => {
+		return api.get('/professionals')
+	},
 	disabledSchedule: async (id: number) => {
 		return api.put('schedule/disable?id=' + id)
 	}

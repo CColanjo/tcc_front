@@ -11,6 +11,11 @@ export interface Schedule {
 	WillAttend: boolean
 }
 
+export interface Professional {
+	Id: number
+	Name: string
+}
+
 export type Filter = {
 	NameClient: string
 	Date: string

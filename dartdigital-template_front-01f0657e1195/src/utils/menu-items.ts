@@ -4,6 +4,7 @@ import ScheduleIcon from '@mui/icons-material/Schedule'
 import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline'
 import KeyIcon from '@mui/icons-material/Key'
 import { IMenu } from '../interfaces/menu.interface'
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline'
 
 const menuItems: IMenu[] = [
 	{
@@ -31,7 +32,7 @@ const menuItems: IMenu[] = [
 		path: '/addclient'
 	},
 	{
-		icon: PeopleOutlineIcon,
+		icon: AddCircleOutlineIcon,
 		idTitle: 'add-professional',
 		active: true,
 		path: '/addprofessional'

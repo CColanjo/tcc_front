@@ -17,7 +17,7 @@ import { useIntl } from 'react-intl'
 import MenuItem from '@mui/material/MenuItem'
 import AutoDeleteIcon from '@mui/icons-material/AutoDelete'
 import scheduleServices from '../../services'
-import { Client, Schedule } from '../../models'
+import { Client, Professional, Schedule } from '../../models'
 import { toastMessages } from '~/components'
 import { useFormik } from 'formik'
 import moment from 'moment'
@@ -39,6 +39,7 @@ const AddScheduleForm = ({
 }: AddScheduleFormPros) => {
 	const { messages } = useIntl()
 	const [clients, setClients] = useState<Client[]>([])
+	const [professionals, setProfessionals] = useState<Professional[]>([])
 	const [schedules, setSchedules] = useState<Schedule[]>([])
 
 	const onClose = () => {
@@ -65,6 +66,12 @@ const AddScheduleForm = ({
 		setClients(data)
 	}
 
+	const loadProfessional = async () => {
+		const response = await scheduleServices.getAllProfessionals()
+		const { data } = response
+		setProfessionals(data)
+	}
+
 	const loadSchedules = async (value: any) => {
 		const response = await scheduleServices.getAllSchedule()
 		const { data } = response
@@ -84,6 +91,7 @@ const AddScheduleForm = ({
 
 	useEffect(() => {
 		loadClients()
+		loadProfessional()
 	}, [])
 
 	useEffect(() => {
@@ -101,7 +109,8 @@ const AddScheduleForm = ({
 				data = {
 					clientId: data.ClientId,
 					scheduleDate: data.ScheduleDate,
-					willAttend: true
+					willAttend: true,
+					professionalId: data.ProfessionalId
 				}
 
 				debugger
@@ -123,6 +132,7 @@ const AddScheduleForm = ({
 		initialValues: {
 			ClientId: '',
 			ScheduleDate: '',
+			ProfessionalId: '',
 			WillAttend: false
 		},
 		onSubmit: onSubmit,
@@ -158,6 +168,26 @@ const AddScheduleForm = ({
 										</MenuItem>
 									))}
 									error={Boolean(formik.errors.ClientId)}
+								</TextField>
+							</Grid>
+							<Grid item sx={{ maxWidth: '100%', width: 660 }}>
+								<TextField
+									id="ProfessionalId"
+									name="ProfessionalId"
+									value={formik.values.ProfessionalId}
+									onChange={formik.handleChange}
+									select
+									variant="outlined"
+									label={messages['professional'].toString()}
+									style={{ width: '100%' }}
+								>
+									{professionals.map((make, index) => (
+										<MenuItem key={index} value={make.Id}>
+											{make.Name}
+										</MenuItem>
+									))}
+									error=
+									{Boolean(formik.errors.ProfessionalId)}
 								</TextField>
 							</Grid>
 							<Grid item>

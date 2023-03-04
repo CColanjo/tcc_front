@@ -38,6 +38,13 @@ const AddSchedule = () => {
 			flex: 2
 		},
 		{
+			field: 'NameProfessional',
+			headerName: messages['professional'].toString(),
+			align: 'left',
+			headerAlign: 'left',
+			flex: 2
+		},
+		{
 			field: 'ScheduleDate',
 			headerName: messages['date'].toString(),
 			align: 'left',
