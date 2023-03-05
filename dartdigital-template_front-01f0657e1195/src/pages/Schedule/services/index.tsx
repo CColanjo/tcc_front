@@ -14,10 +14,6 @@ const scheduleServices = {
 	getAllScheduleByData: async (scheduleDate: any) => {
 		return api.get('/schedules/data?scheduleDate=' + scheduleDate)
 	},
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	updateSchedule: async (data: any) => {
-		return api.put('/schedule', data)
-	},
 	getAllClients: async () => {
 		return api.get('/clients')
 	},

@@ -103,19 +103,15 @@ const AddScheduleForm = ({
 
 	const onSubmit = async (data: any) => {
 		try {
-			if (id) {
-				data.id = id
-				await scheduleServices.updateSchedule(data)
-			} else {
-				data = {
-					clientId: data.ClientId,
-					scheduleDate: data.ScheduleDate,
-					willAttend: true,
-					professionalId: data.ProfessionalId
-				}
-
-				await scheduleServices.createSchedule(data)
+			data = {
+				clientId: data.ClientId,
+				scheduleDate: data.ScheduleDate,
+				willAttend: true,
+				professionalId: data.ProfessionalId
 			}
+
+			await scheduleServices.createSchedule(data)
+
 			toastMessages.success(messages['register-sucess'].toString())
 			onClose()
 			setRefresh((refresh) => !refresh)
