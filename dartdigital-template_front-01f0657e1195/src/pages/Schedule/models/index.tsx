@@ -9,6 +9,7 @@ export interface Schedule {
 	NameClient: string
 	ScheduleDate: string
 	WillAttend: boolean
+	NameProfessional: string
 }
 
 export interface Professional {

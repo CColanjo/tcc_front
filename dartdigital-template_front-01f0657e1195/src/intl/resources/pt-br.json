@@ -156,5 +156,6 @@
 	"PasswordsAreNotTheSame": "A senha não são as mesmas",
 	"CurrentPasswordDoesNotMatch": "A senha atual não corresponde",
 	"ChangePasswordSucess":"Senha alterada com sucesso",
-	"professional": "Profissional"
+	"professional": "Profissional",
+	"InvalidUserNameOrPassword":"Usuário ou senha inválido"
 }

@@ -75,6 +75,7 @@ const AddScheduleForm = ({
 	const loadSchedules = async (value: any) => {
 		const response = await scheduleServices.getAllSchedule()
 		const { data } = response
+		debugger
 		const dataFiltered = data.filter((schedule: any) => {
 			return (
 				moment(schedule.ScheduleDate).format('DD/MM/YYYY') ==
@@ -245,19 +246,44 @@ const AddScheduleForm = ({
 														)}
 														secondary={
 															<Fragment>
-																<Typography
-																	sx={{
-																		display:
-																			'inline'
-																	}}
-																	component="span"
-																	variant="body2"
-																	color="text.primary"
-																>
-																	{
-																		value.NameClient
-																	}
-																</Typography>
+																<Grid item>
+																	<Typography
+																		sx={{
+																			display:
+																				'inline'
+																		}}
+																		component="span"
+																		variant="body2"
+																		color="text.primary"
+																	>
+																		{messages[
+																			'client'
+																		].toString()}
+																		{' - '}
+																		{
+																			value.NameClient
+																		}
+																	</Typography>
+																</Grid>
+																<Grid item>
+																	<Typography
+																		sx={{
+																			display:
+																				'inline'
+																		}}
+																		component="span"
+																		variant="body2"
+																		color="text.primary"
+																	>
+																		{messages[
+																			'professional'
+																		].toString()}
+																		{' - '}
+																		{
+																			value.NameProfessional
+																		}
+																	</Typography>
+																</Grid>
 															</Fragment>
 														}
 													/>
