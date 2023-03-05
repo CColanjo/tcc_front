@@ -75,7 +75,7 @@ const AddScheduleForm = ({
 	const loadSchedules = async (value: any) => {
 		const response = await scheduleServices.getAllSchedule()
 		const { data } = response
-		debugger
+
 		const dataFiltered = data.filter((schedule: any) => {
 			return (
 				moment(schedule.ScheduleDate).format('DD/MM/YYYY') ==
