@@ -119,18 +119,7 @@ export const configureInterceptApi = (
 					resolveErrors(data)
 					break
 				case 401:
-					{
-						// TODO - Caso haja refresh
-						// const oldRefreshToken =
-						// 	JSON.parse(localStorage.getItem('@NNUM:refresh')!) ||
-						// 	null
-						// if (oldRefreshToken) await refreshToken()
-						// else {
-						// 	signOut(data)
-						// 	return
-						// }
-						resolveErrors(data)
-					}
+					signOut(locale)
 					break
 				case 403:
 					resolveErrors(data)
