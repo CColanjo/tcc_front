@@ -21,6 +21,7 @@ import { Client, Professional, Schedule } from '../../models'
 import { toastMessages } from '~/components'
 import { useFormik } from 'formik'
 import moment from 'moment'
+import { object, string } from 'yup'
 
 type AddScheduleFormPros = {
 	drawerRef: Ref<DrawerHandles>
@@ -123,6 +124,17 @@ const AddScheduleForm = ({
 	const inputProps = {
 		someDate: '10-10-2022 8:00'
 	}
+	const validationSchema = object({
+		ClientId: string().required(
+			messages['error.validation.required-fields'].toString()
+		),
+		ProfessionalId: string().required(
+			messages['error.validation.required-fields'].toString()
+		),
+		ScheduleDate: string().required(
+			messages['error.validation.required-fields'].toString()
+		)
+	})
 
 	const formik = useFormik({
 		initialValues: {
@@ -133,7 +145,8 @@ const AddScheduleForm = ({
 		},
 		onSubmit: onSubmit,
 		validateOnBlur: false,
-		validateOnChange: false
+		validateOnChange: false,
+		validationSchema
 	})
 
 	return (
@@ -152,18 +165,20 @@ const AddScheduleForm = ({
 									id="ClientId"
 									name="ClientId"
 									value={formik.values.ClientId}
-									onChange={formik.handleChange}
 									select
 									variant="outlined"
 									label={messages['client'].toString()}
 									style={{ width: '100%' }}
+									onBlur={formik.handleBlur}
+									onChange={formik.handleChange}
+									error={Boolean(formik.errors.ClientId)}
+									helperText={formik.errors.ClientId}
 								>
 									{clients.map((make, index) => (
 										<MenuItem key={index} value={make.Id}>
 											{make.Name}
 										</MenuItem>
 									))}
-									error={Boolean(formik.errors.ClientId)}
 								</TextField>
 							</Grid>
 							<Grid item sx={{ maxWidth: '100%', width: 660 }}>
@@ -176,14 +191,16 @@ const AddScheduleForm = ({
 									variant="outlined"
 									label={messages['professional'].toString()}
 									style={{ width: '100%' }}
+									error={Boolean(
+										formik.errors.ProfessionalId
+									)}
+									helperText={formik.errors.ProfessionalId}
 								>
 									{professionals.map((make, index) => (
 										<MenuItem key={index} value={make.Id}>
 											{make.Name}
 										</MenuItem>
 									))}
-									error=
-									{Boolean(formik.errors.ProfessionalId)}
 								</TextField>
 							</Grid>
 							<Grid item>
@@ -198,6 +215,7 @@ const AddScheduleForm = ({
 									defaultValue={inputProps.someDate}
 									value={formik.values.ScheduleDate}
 									error={Boolean(formik.errors.ScheduleDate)}
+									helperText={formik.errors.ScheduleDate}
 								/>
 							</Grid>
 							<Grid item>

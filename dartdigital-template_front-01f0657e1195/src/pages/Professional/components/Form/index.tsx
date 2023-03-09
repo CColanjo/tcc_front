@@ -90,7 +90,7 @@ const AddProfessionalForm = ({
 						<Grid container item direction="row">
 							<Grid item sx={{ maxWidth: '100%', width: 660 }}>
 								<TextField
-									id="Name"
+									id="helperText={formik.errors.Address}"
 									name="Name"
 									label={messages['name'].toString()}
 									variant="outlined"
@@ -99,6 +99,7 @@ const AddProfessionalForm = ({
 									onBlur={formik.handleBlur}
 									value={formik.values.Name}
 									error={Boolean(formik.errors.Name)}
+									helperText={formik.errors.Name}
 								/>
 							</Grid>
 						</Grid>

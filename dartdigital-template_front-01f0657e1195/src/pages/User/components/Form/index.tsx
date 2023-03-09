@@ -103,6 +103,7 @@ const UserForm = ({
 									onBlur={formik.handleBlur}
 									value={formik.values.Name}
 									error={Boolean(formik.errors.Name)}
+									helperText={formik.errors.Name}
 								/>
 							</Grid>
 						</Grid>
@@ -117,6 +118,7 @@ const UserForm = ({
 									onBlur={formik.handleBlur}
 									error={Boolean(formik.errors.Username)}
 									value={formik.values.Username}
+									helperText={formik.errors.Username}
 								/>
 							</Grid>
 						</Grid>
