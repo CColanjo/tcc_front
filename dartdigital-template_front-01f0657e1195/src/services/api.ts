@@ -43,6 +43,9 @@ function resolveErrors(data: any) {
 		toastMessages.error(data.message)
 	}
 }
+function resolveErrors401() {
+	toastMessages.error('Ocorreu um erro')
+}
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 async function refreshToken() {
@@ -116,7 +119,7 @@ export const configureInterceptApi = (
 
 			switch (status) {
 				case 400:
-					resolveErrors(data)
+					resolveErrors401()
 					break
 				case 401:
 					signOut(locale)

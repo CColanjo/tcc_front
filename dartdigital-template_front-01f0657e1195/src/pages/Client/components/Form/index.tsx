@@ -108,7 +108,11 @@ const AddClientForm = ({
 									onChange={formik.handleChange}
 									onBlur={formik.handleBlur}
 									value={formik.values.Name}
-									error={Boolean(formik.errors.Name)}
+									helperText={formik.errors.Name}
+									error={
+										formik.touched.Name &&
+										Boolean(formik.errors.Name)
+									}
 								/>
 							</Grid>
 						</Grid>
@@ -125,6 +129,7 @@ const AddClientForm = ({
 									onBlur={formik.handleBlur}
 									value={formik.values.Cellphone}
 									error={Boolean(formik.errors.Cellphone)}
+									helperText={formik.errors.Cellphone}
 								/>
 							</Grid>
 							<Grid item>
@@ -138,6 +143,7 @@ const AddClientForm = ({
 									onBlur={formik.handleBlur}
 									value={formik.values.Email}
 									error={Boolean(formik.errors.Email)}
+									helperText={formik.errors.Email}
 								/>
 							</Grid>
 							<Grid item>
@@ -150,6 +156,7 @@ const AddClientForm = ({
 									onBlur={formik.handleBlur}
 									value={formik.values.Address}
 									error={Boolean(formik.errors.Address)}
+									helperText={formik.errors.Address}
 								/>
 							</Grid>
 						</Grid>
