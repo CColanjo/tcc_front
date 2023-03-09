@@ -160,7 +160,8 @@ const AddClientForm = ({
 								Essa plataforma utiliza ambiente de sandbox para
 								enviar mensagem, para receber mensagem no seu
 								whatsapp, por favor envie <b>join teach-come</b>{' '}
-								para número o +1 415 523 8886
+								para número o +1 415 523 8886, ele fica
+								disponível durante o período de 3 dias
 							</Typography>
 						</Grid>
 
