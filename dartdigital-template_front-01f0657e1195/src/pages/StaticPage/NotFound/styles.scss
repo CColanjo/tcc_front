@@ -1,0 +1,23 @@
+.page-not-found {
+    margin-top: 10vh;
+    margin-left: 10vh;
+    color: #a5a2a2;
+    text-align: center;
+
+    .page-not-found-text-large {
+        font-size: 80px;
+    }
+
+    .page-not-found-text-medium {
+        font-size: 30px;
+    }
+
+    .page-not-found-link {
+        font-size: 15px;
+    }
+
+    @media (min-width: 992px) {
+        margin-right: auto;
+        margin-left: auto;
+    }
+}

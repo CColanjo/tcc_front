@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes as ReactRoutes } from 'react-router-dom'
 
 import { IRoute } from '~/interfaces/route.interface'
+import NotFound from '~/pages/StaticPage/NotFound'
 import routes from '~/utils/merge-routes'
 
 import Guard from './Guard'
@@ -24,6 +25,7 @@ const Router = () => {
 					/>
 				)
 			})}
+			<Route path="*" element={<NotFound />} />
 		</ReactRoutes>
 	)
 }

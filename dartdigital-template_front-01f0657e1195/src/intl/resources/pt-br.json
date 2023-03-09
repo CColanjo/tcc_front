@@ -157,5 +157,7 @@
 	"CurrentPasswordDoesNotMatch": "A senha atual não corresponde",
 	"ChangePasswordSucess":"Senha alterada com sucesso",
 	"professional": "Profissional",
-	"InvalidUserNameOrPassword":"Usuário ou senha inválido"
+	"InvalidUserNameOrPassword":"Usuário ou senha inválido",
+	"not-found":"Página não encontrada",
+	"return-to-main-page": "Retornar para página principal"
 }

@@ -157,5 +157,7 @@
 	"CurrentPasswordDoesNotMatch": "Current password does not match",
 	"ChangePasswordSucess":"Change password sucess",
 	"professional": "Professional",
-	"InvalidUserNameOrPassword":"Invalid User Name Or Password"
+	"InvalidUserNameOrPassword":"Invalid User Name Or Password",
+	"not-found":"Not Found",
+	"return-to-main-page": "Return to main page"
 }
