@@ -68,7 +68,7 @@ const AddUser = () => {
 			flex: 2,
 			renderCell: (params: GridRenderCellParams<string>) => (
 				<Grid container item direction="row" spacing={2}>
-					<Grid item>
+					<Grid item xs={6}>
 						{auth.isAdmin && (
 							<Button
 								onClick={() => {
@@ -80,8 +80,8 @@ const AddUser = () => {
 							</Button>
 						)}
 					</Grid>
-					<Grid item>
-						{auth.isAdmin && (
+					<Grid item xs={6}>
+						{auth.isAdmin && params.row.Active === true && (
 							<Button
 								disabled={params.row.Active ? false : true}
 								onClick={() => {
@@ -93,8 +93,8 @@ const AddUser = () => {
 							</Button>
 						)}
 					</Grid>
-					<Grid item>
-						{auth.isAdmin && (
+					<Grid item xs={6}>
+						{auth.isAdmin && params.row.Active === false && (
 							<Button
 								disabled={params.row.Active ? true : false}
 								onClick={() => {
