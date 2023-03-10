@@ -1,12 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Button, Container, Grid, TextField } from '@mui/material'
-import { useIntl } from 'react-intl'
+import { Button, Container, Grid } from '@mui/material'
+import { FormattedMessage, useIntl } from 'react-intl'
 import { useFormik } from 'formik'
 import { object, string } from 'yup'
 import changePasswordServices from '../services'
 import { useAuth } from '~/hooks'
 import toastMessages from '~/components/ToastMessages'
+import { InputPassword } from '~/components'
 
 const ChangePassword = () => {
 	const { messages } = useIntl()
@@ -14,11 +15,11 @@ const ChangePassword = () => {
 
 	const onSubmit = async (data: any) => {
 		if (data.newPassword != data.newPasswordConfirmation) {
-			toastMessages.success(messages['PasswordsAreNotTheSame'].toString())
+			toastMessages.error(messages['PasswordsAreNotTheSame'].toString())
 			return
 		}
 		if (auth.user.password != data.oldPassword) {
-			toastMessages.success(
+			toastMessages.error(
 				messages['CurrentPasswordDoesNotMatch'].toString()
 			)
 			return
@@ -67,48 +68,72 @@ const ChangePassword = () => {
 							<h3>{messages['change-password'].toString()}</h3>
 						</Grid>
 					</Grid>
-					<Grid container item direction="row">
-						<Grid item sx={{ maxWidth: '100%', width: 660 }}>
-							<TextField
+					<Grid container item direction="row" spacing={2}>
+						<Grid item>
+							<InputPassword
+								required
+								fullWidth
+								margin="normal"
 								id="oldPassword"
 								name="oldPassword"
-								label={messages['old-password'].toString()}
-								variant="outlined"
-								onChange={formik.handleChange}
-								onBlur={formik.handleBlur}
+								autoComplete="current-password"
+								color="orangeDart"
 								value={formik.values.oldPassword}
-								error={Boolean(formik.errors.oldPassword)}
+								onChange={formik.handleChange}
+								error={
+									formik.touched.oldPassword &&
+									Boolean(formik.errors.oldPassword)
+								}
+								helperText={formik.errors.oldPassword}
+								label={<FormattedMessage id="old-password" />}
 							/>
 						</Grid>
 					</Grid>
 					<Grid container item direction="row" spacing={2}>
 						<Grid item>
-							<TextField
+							<InputPassword
+								required
+								fullWidth
+								margin="normal"
 								id="newPassword"
 								name="newPassword"
-								label={messages['new-password'].toString()}
-								variant="outlined"
-								onChange={formik.handleChange}
-								onBlur={formik.handleBlur}
+								autoComplete="current-password"
+								color="orangeDart"
 								value={formik.values.newPassword}
-								error={Boolean(formik.errors.newPassword)}
+								onChange={formik.handleChange}
+								error={
+									formik.touched.newPassword &&
+									Boolean(formik.errors.newPassword)
+								}
+								helperText={formik.errors.newPassword}
+								label={<FormattedMessage id="new-password" />}
 							/>
 						</Grid>
 					</Grid>
 					<Grid container item direction="row" spacing={2}>
 						<Grid item>
-							<TextField
+							<InputPassword
+								required
+								fullWidth
+								margin="normal"
 								id="newPasswordConfirmation"
 								name="newPasswordConfirmation"
-								label={messages['confirm-password'].toString()}
-								variant="outlined"
-								type={'confirmPassword'}
-								onChange={formik.handleChange}
-								onBlur={formik.handleBlur}
+								autoComplete="current-password"
+								color="orangeDart"
 								value={formik.values.newPasswordConfirmation}
-								error={Boolean(
+								onChange={formik.handleChange}
+								error={
+									formik.touched.newPasswordConfirmation &&
+									Boolean(
+										formik.errors.newPasswordConfirmation
+									)
+								}
+								helperText={
 									formik.errors.newPasswordConfirmation
-								)}
+								}
+								label={
+									<FormattedMessage id="confirm-password" />
+								}
 							/>
 						</Grid>
 					</Grid>

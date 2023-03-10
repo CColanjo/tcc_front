@@ -113,6 +113,7 @@ const AddUser = () => {
 
 	return (
 		<Container>
+			<h1>{messages['add-user'].toString()}</h1>
 			{auth.isAdmin && (
 				<div className="button-action">
 					<Button
