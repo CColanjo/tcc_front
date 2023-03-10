@@ -11,6 +11,7 @@ import moment from 'moment'
 import { StyledDataGrid } from './styles'
 import { useIntl } from 'react-intl'
 import { Box } from '@mui/material'
+import { StyledDataGridMobile } from './stylesmobile'
 
 type TableProps = {
 	filter: any
@@ -106,7 +107,7 @@ const Table = (props: TableProps) => {
 			{!md ? (
 				<>
 					<Box width={'100%'}>
-						<StyledDataGrid
+						<StyledDataGridMobile
 							localeText={{
 								noRowsLabel: messages['no_results'].toString()
 							}}
