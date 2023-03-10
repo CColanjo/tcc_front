@@ -9,9 +9,8 @@ import qs from 'qs'
 import moment from 'moment'
 
 import { StyledDataGrid } from './styles'
-import TableCard from '../TableCard'
-import PaginationMobile from '../PaginationMobile'
 import { useIntl } from 'react-intl'
+import { Box } from '@mui/material'
 
 type TableProps = {
 	filter: any
@@ -106,13 +105,28 @@ const Table = (props: TableProps) => {
 		<div>
 			{!md ? (
 				<>
-					<TableCard columns={columns} rows={dataSource} />
-					<PaginationMobile
-						current={pagination.pageNumber}
-						pageSize={pagination.pageSize}
-						totalRecords={totalRecords}
-						onChange={onChangePage}
-					/>
+					<Box width={'100%'}>
+						<StyledDataGrid
+							localeText={{
+								noRowsLabel: messages['no_results'].toString()
+							}}
+							rows={dataSource}
+							columns={columns}
+							rowCount={totalRecords}
+							onPageChange={(page: number) => {
+								onChangePage(page + 1, pagination.pageSize)
+							}}
+							sx={{
+								border: 'none',
+								height: 'calc(100vh - 200px)'
+							}}
+							disableColumnMenu={true}
+							disableSelectionOnClick={true}
+							pageSize={10}
+							autoPageSize={true}
+							paginationMode={'server'}
+						/>
+					</Box>
 				</>
 			) : (
 				<StyledDataGrid
