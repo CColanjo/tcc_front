@@ -65,10 +65,10 @@ const AddUser = () => {
 			headerName: 'Action',
 			type: 'actions',
 			headerAlign: 'left',
-			flex: 2,
+			flex: 3,
 			renderCell: (params: GridRenderCellParams<string>) => (
 				<Grid container item direction="row" spacing={2}>
-					<Grid item xs={6}>
+					<Grid item xs={3}>
 						{auth.isAdmin && (
 							<Button
 								onClick={() => {
@@ -80,8 +80,8 @@ const AddUser = () => {
 							</Button>
 						)}
 					</Grid>
-					<Grid item xs={6}>
-						{auth.isAdmin && params.row.Active === true && (
+					<Grid item xs={3}>
+						{auth.isAdmin && (
 							<Button
 								disabled={params.row.Active ? false : true}
 								onClick={() => {
@@ -93,8 +93,8 @@ const AddUser = () => {
 							</Button>
 						)}
 					</Grid>
-					<Grid item xs={6}>
-						{auth.isAdmin && params.row.Active === false && (
+					<Grid item xs={3}>
+						{auth.isAdmin && (
 							<Button
 								disabled={params.row.Active ? true : false}
 								onClick={() => {
