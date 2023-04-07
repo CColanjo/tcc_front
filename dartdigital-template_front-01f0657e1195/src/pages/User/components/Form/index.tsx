@@ -45,13 +45,15 @@ const UserForm = ({
 		}
 	}, [id])
 
-	const onSubmit = async (data: any) => {
+	const onSubmit = async (input: any) => {
 		try {
 			if (id) {
-				data.id = id
-				await userServices.updateUser(data)
+				input.id = id
+				await userServices.updateUser(input)
 			} else {
-				await userServices.createUser(data)
+				const response = await userServices.createUser(input)
+				const { data } = response
+				toastMessages.success('Senha: ' + data)
 			}
 			toastMessages.success(messages['register-sucess'].toString())
 			setRefresh((refresh) => !refresh)
