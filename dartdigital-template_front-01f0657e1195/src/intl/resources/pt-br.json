@@ -132,8 +132,8 @@
 	"other": "Outro",
 	"current_office": "Posto Atual",
 	"client":"Cliente",
-	"add-client":"Adicionar Cliente",
-	"add-professional":"Adicionar Professional",
+	"add-client":"Clientes",
+	"add-professional":"Profissionais",
 	"name":"Nome",
 	"cellphone-number":"Celular",
 	"e-mail":"E-mail",
@@ -141,11 +141,11 @@
 	"error.validation.required-fields":"Campos obrigatórios",
 	"register-sucess": "Registrado com sucesso",
 	"date":"Data",
-	"add-schedule":"Adicionar Agenda",
+	"add-schedule":"Agenda",
 	"register":"Cadastrar",
 	"schedule-day": "Agenda do dia",
 	"user":"Usuário",
-	"add-user":"Adicionar usuário",
+	"add-user":"Usuários",
 	"change-password":"Trocar senha",
 	"old-password": "Senha Antiga",
 	"new-password": "Nova Senha",
@@ -159,5 +159,6 @@
 	"professional": "Profissional",
 	"InvalidUserNameOrPassword":"Usuário ou senha inválido",
 	"not-found":"Página não encontrada",
-	"return-to-main-page": "Retornar para página principal"
+	"return-to-main-page": "Retornar para página principal",
+	"schedule-daily": "Agenda do Dia"
 }

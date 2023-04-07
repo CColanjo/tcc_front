@@ -1,6 +1,6 @@
 import { IRoute } from '~/interfaces/route.interface'
 
-import HomePage from '..'
+import HomePage from '../components'
 
 const routes: IRoute[] = [
 	{

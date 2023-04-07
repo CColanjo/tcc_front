@@ -132,8 +132,8 @@
 	"other": "Other",
 	"current_office": "Current Office",
 	"client":"Client",
-	"add-client":"Add Client",
-	"add-professional":"Add Professional",
+	"add-client":"Clients",
+	"add-professional":"Professionals",
 	"name":"Name",
 	"cellphone-number":"Cellphone",
 	"e-mail":"E-mail",
@@ -141,11 +141,11 @@
 	"error.validation.required-fields":"Required Fields",
 	"register-sucess": "Register Sucess",
 	"date":"Date",
-	"add-schedule":"Add Schedule",
+	"add-schedule":"Schedule",
 	"register":"Register",
 	"schedule-day": "Schedule day",
 	"user":"User",
-	"add-user":"Add user",
+	"add-user":"User",
 	"change-password":"Change password",
 	"old-password": "Old Password",
 	"new-password": "New Password",
@@ -159,5 +159,6 @@
 	"professional": "Professional",
 	"InvalidUserNameOrPassword":"Invalid User Name Or Password",
 	"not-found":"Not Found",
-	"return-to-main-page": "Return to main page"
+	"return-to-main-page": "Return to main page",
+	"schedule-daily": "Schedule of the day"
 }
