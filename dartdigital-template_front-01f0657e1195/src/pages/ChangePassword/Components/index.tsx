@@ -13,12 +13,12 @@ const ChangePassword = () => {
 	const { messages } = useIntl()
 	const auth = useAuth()
 
-	const onSubmit = async (data: any) => {
-		if (data.newPassword != data.newPasswordConfirmation) {
+	const onSubmit = async (input: any) => {
+		if (input.newPassword != input.newPasswordConfirmation) {
 			toastMessages.error(messages['PasswordsAreNotTheSame'].toString())
 			return
 		}
-		if (auth.user.password != data.oldPassword) {
+		if (auth.user.password != input.oldPassword) {
 			toastMessages.error(
 				messages['CurrentPasswordDoesNotMatch'].toString()
 			)
@@ -26,8 +26,8 @@ const ChangePassword = () => {
 		}
 
 		try {
-			data.username = auth.user.username
-			changePasswordServices.changePassword(data)
+			input.username = auth.user.username
+			await changePasswordServices.changePassword(input)
 			toastMessages.success(messages['ChangePasswordSucess'].toString())
 			formik.resetForm()
 		} catch (err) {
