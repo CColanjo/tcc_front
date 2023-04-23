@@ -27,6 +27,7 @@ const ChangePassword = () => {
 
 		try {
 			input.username = auth.user.username
+			auth.user.password = input.newPassword
 			await changePasswordServices.changePassword(input)
 			toastMessages.success(messages['ChangePasswordSucess'].toString())
 			formik.resetForm()
