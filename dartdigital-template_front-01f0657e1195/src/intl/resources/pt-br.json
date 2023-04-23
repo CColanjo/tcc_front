@@ -160,5 +160,6 @@
 	"InvalidUserNameOrPassword":"Usuário ou senha inválido",
 	"not-found":"Página não encontrada",
 	"return-to-main-page": "Retornar para página principal",
-	"schedule-daily": "Agenda do Dia"
+	"schedule-daily": "Agenda do Dia",
+	"verify-email":"Verifique o e-mail ou a caixa de spam"
 }

@@ -51,9 +51,8 @@ const UserForm = ({
 				input.id = id
 				await userServices.updateUser(input)
 			} else {
-				const response = await userServices.createUser(input)
-				const { data } = response
-				toastMessages.success('Senha: ' + data)
+				await userServices.createUser(input)
+				toastMessages.success(messages['verify-email'].toString())
 			}
 			toastMessages.success(messages['register-sucess'].toString())
 			setRefresh((refresh) => !refresh)
@@ -75,7 +74,8 @@ const UserForm = ({
 		initialValues: {
 			Name: '',
 			Username: '',
-			IsAdmin: false
+			IsAdmin: false,
+			Email: ''
 		},
 		onSubmit: onSubmit,
 		validateOnBlur: false,
@@ -121,6 +121,22 @@ const UserForm = ({
 									error={Boolean(formik.errors.Username)}
 									value={formik.values.Username}
 									helperText={formik.errors.Username}
+								/>
+							</Grid>
+						</Grid>
+						<Grid container item direction="row" spacing={2}>
+							<Grid item>
+								<TextField
+									id="Email"
+									name="Email"
+									label={messages['email'].toString()}
+									variant="outlined"
+									onChange={formik.handleChange}
+									onBlur={formik.handleBlur}
+									type={'email'}
+									error={Boolean(formik.errors.Email)}
+									value={formik.values.Email}
+									helperText={formik.errors.Email}
 								/>
 							</Grid>
 						</Grid>
