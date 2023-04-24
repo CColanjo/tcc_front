@@ -37,7 +37,6 @@ const toastMessages = {
 				color: '#CCC5BC',
 				fontFamily: 'Roboto'
 			},
-			icon: '👏',
 			iconTheme: {
 				primary: '#CCC5BC',
 				secondary: '#FFFAEE'

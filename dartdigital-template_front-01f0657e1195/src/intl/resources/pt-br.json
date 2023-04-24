@@ -161,5 +161,6 @@
 	"not-found":"Página não encontrada",
 	"return-to-main-page": "Retornar para página principal",
 	"schedule-daily": "Agenda do Dia",
-	"verify-email":"Verifique o e-mail ou a caixa de spam"
+	"verify-email":"Verifique o e-mail ou a caixa de spam",
+	"forgot-password":"Esqueceu a senha?"
 }

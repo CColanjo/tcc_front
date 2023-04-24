@@ -161,5 +161,6 @@
 	"not-found":"Not Found",
 	"return-to-main-page": "Return to main page",
 	"schedule-daily": "Schedule of the day",
-	"verify-email":"Verify E-mail or spam"
+	"verify-email":"Verify E-mail or spam",
+	"forgot-password":"Forgot password?"
 }

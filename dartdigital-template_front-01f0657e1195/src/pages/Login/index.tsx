@@ -2,21 +2,20 @@ import { FormattedMessage, useIntl as useReactIntl } from 'react-intl'
 
 import { useFormik } from 'formik'
 import * as yup from 'yup'
-
+import { toastMessages } from '~/components'
 import Button from '@mui/material/Button'
 import CssBaseline from '@mui/material/CssBaseline'
 import TextField from '@mui/material/TextField'
 import Paper from '@mui/material/Paper'
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
-
 import { InputPassword } from '../../components'
 import { useAuth, useIntl } from '~/hooks'
-
 import { UserModel } from '~/models/user-model'
-
 import logoBlue from '@/assets/images/logo-blue.png'
 import backgroundLogin from '@/assets/images/bg-login.png'
+import loginServices from './services'
+import { Link } from '@mui/material'
 
 const LoginPage = () => {
 	const intl = {
@@ -46,10 +45,22 @@ const LoginPage = () => {
 		}
 	})
 
+	const forgotPassword = async () => {
+		const values = form.values
+
+		if (values.username === '') {
+			toastMessages.error('Preencher usuário')
+		} else {
+			const response = await loginServices.forgotPassword(values.username)
+			const { data } = response
+
+			toastMessages.success(data)
+		}
+	}
+
 	const handleSubmit = async () => {
 		if (form.isValid) {
 			const values = form.values
-
 			await login(values.username, values.password)
 		}
 	}
@@ -145,6 +156,14 @@ const LoginPage = () => {
 						>
 							<FormattedMessage id="continue" />
 						</Button>
+
+						<Link
+							onClick={() => {
+								forgotPassword()
+							}}
+						>
+							<FormattedMessage id="forgot-password" />
+						</Link>
 					</Box>
 				</Box>
 			</Grid>
