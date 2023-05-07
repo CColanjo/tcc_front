@@ -141,7 +141,7 @@ const Table = (props: TableProps) => {
 						onChangePage(page + 1, pagination.pageSize)
 					}}
 					sx={{ border: 'none', height: 'calc(100vh - 200px)' }}
-					disableColumnMenu={true}
+					disableColumnMenu={false}
 					disableSelectionOnClick={true}
 					pageSize={10}
 					autoPageSize={true}
