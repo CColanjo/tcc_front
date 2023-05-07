@@ -15,6 +15,7 @@ import api from '~/services/api'
 
 interface BarChartComponentProps {
 	apiURL: string
+	name: string
 	width?: string | number
 	height?: number
 	barColor?: string
@@ -27,6 +28,7 @@ interface Data {
 
 const BarChartComponent: React.FC<BarChartComponentProps> = ({
 	apiURL,
+	name,
 	width = '100%',
 	height = 300,
 	barColor = '#8884d8'
@@ -62,7 +64,7 @@ const BarChartComponent: React.FC<BarChartComponentProps> = ({
 					}
 				/>
 				<Legend />
-				<Bar dataKey="Value" name="Atendimentos" fill={barColor} />
+				<Bar dataKey="Value" name={name} fill={barColor} />
 			</BarChart>
 		</ResponsiveContainer>
 	)

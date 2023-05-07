@@ -49,7 +49,33 @@ const HomePage = () => {
 			<h1>{messages['schedule-year'].toString()}</h1>
 			<BarChartComponent
 				apiURL="schedules/GetAllSchedulesWasAttend"
+				width="50%"
+				name={messages['value'].toString()}
+				height={400}
+				barColor="#F58226"
+			/>
+			<h1>{messages['not-schedule-year'].toString()}</h1>
+			<BarChartComponent
+				apiURL="schedules/GetAllSchedulesNotWasAttend"
+				width="50%"
+				name={messages['value'].toString()}
+				height={400}
+				barColor="#F58226"
+			/>
+			<h1>{messages['client-year'].toString()}</h1>
+			<BarChartComponent
+				apiURL="clients/GetAllClientsPerMonth"
 				width="80%"
+				name={messages['value'].toString()}
+				height={400}
+				barColor="#F58226"
+			/>
+			<h1>{messages['user-year'].toString()}</h1>
+			<BarChartComponent
+				//apiURL="users/GetAllUserPerMonth"
+				apiURL="clients/GetAllClientsPerMonth"
+				width="80%"
+				name={messages['value'].toString()}
 				height={400}
 				barColor="#F58226"
 			/>

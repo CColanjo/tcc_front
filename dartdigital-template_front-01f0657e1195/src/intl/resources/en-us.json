@@ -163,5 +163,9 @@
 	"schedule-daily": "Schedule of the day",
 	"verify-email":"Verify E-mail or spam",
 	"forgot-password":"Forgot password?",
-	"schedule-year": "Completed appointments in the year up to the present month"
+	"schedule-year": "Completed appointments in the year up to the present month",
+	"client-year": "New customers from year to current month",
+	"not-schedule-year": "Not Completed appointments in the year up to the present month",
+	"value": "Value",
+	"user-year" : "New users from year to current month"
 }
