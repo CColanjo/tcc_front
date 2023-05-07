@@ -5,6 +5,7 @@ import { useIntl } from 'react-intl'
 import Table from '~/components/Table'
 import moment from 'moment'
 import { Filter } from '../models'
+import BarChartComponent from '~/components/BarChartComponent'
 
 const HomePage = () => {
 	const filter = useState<Filter>()
@@ -45,6 +46,13 @@ const HomePage = () => {
 				columns={columns}
 				filter={filter}
 			></Table>
+			<h1>{messages['schedule-year'].toString()}</h1>
+			<BarChartComponent
+				apiURL="schedules/GetAllSchedulesWasAttend"
+				width="80%"
+				height={400}
+				barColor="#F58226"
+			/>
 		</Container>
 	)
 }

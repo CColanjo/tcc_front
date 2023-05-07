@@ -162,5 +162,6 @@
 	"return-to-main-page": "Return to main page",
 	"schedule-daily": "Schedule of the day",
 	"verify-email":"Verify E-mail or spam",
-	"forgot-password":"Forgot password?"
+	"forgot-password":"Forgot password?",
+	"schedule-year": "Completed appointments in the year up to the present month"
 }

@@ -162,5 +162,6 @@
 	"return-to-main-page": "Retornar para página principal",
 	"schedule-daily": "Agenda do Dia",
 	"verify-email":"Verifique o e-mail ou a caixa de spam",
-	"forgot-password":"Esqueceu a senha?"
+	"forgot-password":"Esqueceu a senha?",
+	"schedule-year": "Atendimentos concluídos no ano até o presente mês"
 }
