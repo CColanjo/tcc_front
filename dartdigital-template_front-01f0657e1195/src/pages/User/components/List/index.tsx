@@ -12,6 +12,7 @@ import userServices from '../../services'
 import AutoDeleteIcon from '@mui/icons-material/AutoDelete'
 import { useAuth } from '~/hooks/auth'
 import CheckIcon from '@mui/icons-material/Check'
+import Download from '~/components/Download'
 
 const AddUser = () => {
 	const [id, setId] = useState('')
@@ -70,14 +71,16 @@ const AddUser = () => {
 				<Grid container item direction="row" spacing={2}>
 					<Grid item xs={3}>
 						{auth.isAdmin && (
-							<Button
-								onClick={() => {
-									fireAction(params.row.Id)
-								}}
-							>
-								{' '}
-								<EditIcon />
-							</Button>
+							<>
+								<Button
+									onClick={() => {
+										fireAction(params.row.Id)
+									}}
+								>
+									{' '}
+									<EditIcon />
+								</Button>
+							</>
 						)}
 					</Grid>
 					<Grid item xs={3}>
@@ -124,6 +127,7 @@ const AddUser = () => {
 					>
 						{messages['register'].toString()}
 					</Button>
+					<Download url="users/excel"></Download>
 				</div>
 			)}
 			<Table

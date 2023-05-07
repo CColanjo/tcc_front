@@ -8,12 +8,14 @@ import { Filter } from '../../models'
 import AddScheduleForm from '../Form'
 import EditIcon from '@mui/icons-material/Edit'
 import moment from 'moment'
+import Download from '~/components/Download'
+import { useAuth } from '~/hooks'
 
 const AddSchedule = () => {
 	const drawerRef = useRef<DrawerHandles>(null)
 	const [id, setId] = useState('')
 	const [refresh, setRefresh] = useState<boolean>(false)
-
+	const auth = useAuth()
 	const openDrawer = () => {
 		drawerRef.current?.toggleDrawer()
 	}
@@ -83,6 +85,7 @@ const AddSchedule = () => {
 				>
 					{messages['register'].toString()}
 				</Button>
+				{auth.isAdmin && <Download url="schedules/excel"></Download>}
 			</div>
 			<Table
 				url={'schedules/paginated'}

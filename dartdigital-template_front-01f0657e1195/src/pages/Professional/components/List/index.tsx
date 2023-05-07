@@ -7,11 +7,13 @@ import Table from '~/components/Table'
 import EditIcon from '@mui/icons-material/Edit'
 import { Filter } from '../../models'
 import AddProfessionalForm from '../Form'
+import Download from '~/components/Download'
+import { useAuth } from '~/hooks'
 
 const AddProfessional = () => {
 	const drawerRef = useRef<DrawerHandles>(null)
 	const [refresh, setRefresh] = useState<boolean>(false)
-
+	const auth = useAuth()
 	const [id, setId] = useState('')
 
 	const openDrawer = () => {
@@ -68,6 +70,9 @@ const AddProfessional = () => {
 				>
 					{messages['register'].toString()}
 				</Button>
+				{auth.isAdmin && (
+					<Download url="professionals/excel"></Download>
+				)}
 			</div>
 			<Table
 				url={'/professionals/paginated'}

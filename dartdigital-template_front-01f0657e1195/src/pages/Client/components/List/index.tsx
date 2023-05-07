@@ -7,11 +7,13 @@ import Table from '~/components/Table'
 import AddClientForm from '../Form'
 import EditIcon from '@mui/icons-material/Edit'
 import { Filter } from '../../models'
+import Download from '~/components/Download'
+import { useAuth } from '~/hooks'
 
 const AddClient = () => {
 	const drawerRef = useRef<DrawerHandles>(null)
 	const [refresh, setRefresh] = useState<boolean>(false)
-
+	const auth = useAuth()
 	const [id, setId] = useState('')
 
 	const openDrawer = () => {
@@ -68,6 +70,8 @@ const AddClient = () => {
 				>
 					{messages['register'].toString()}
 				</Button>
+
+				{auth.isAdmin && <Download url="clients/excel"></Download>}
 			</div>
 			<Table
 				url={'/clients/paginated'}
