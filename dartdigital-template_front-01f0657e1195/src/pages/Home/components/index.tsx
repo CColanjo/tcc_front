@@ -72,8 +72,15 @@ const HomePage = () => {
 			/>
 			<h1>{messages['user-year'].toString()}</h1>
 			<BarChartComponent
-				//apiURL="users/GetAllUserPerMonth"
-				apiURL="clients/GetAllClientsPerMonth"
+				apiURL="users/GetAllUserPerMonth"
+				width="80%"
+				name={messages['value'].toString()}
+				height={400}
+				barColor="#F58226"
+			/>
+			<h1>{messages['professional-year'].toString()}</h1>
+			<BarChartComponent
+				apiURL="professionals/GetAllProfessionalPerMonth"
 				width="80%"
 				name={messages['value'].toString()}
 				height={400}

@@ -167,5 +167,6 @@
 	"client-year": "New customers from year to current month",
 	"not-schedule-year": "Not Completed appointments in the year up to the present month",
 	"value": "Value",
-	"user-year" : "New users from year to current month"
+	"user-year" : "New users from year to current month",
+	"professional-year": "New professionals from year to current month"
 }

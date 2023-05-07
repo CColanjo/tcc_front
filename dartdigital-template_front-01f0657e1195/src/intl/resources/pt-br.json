@@ -167,5 +167,6 @@
 	"client-year": "Novos clientes do ano até o mês atual",
 	"not-schedule-year": "Atendimentos não concluídos no ano até o presente mês",
 	"value": "valor",
-	"user-year" : "Novos usuários do ano até o mês atual"
+	"user-year" : "Novos usuários do ano até o mês atual",
+	"professional-year": "Novos Profissionais do ano até o mês atual"
 }
